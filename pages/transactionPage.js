@@ -60,7 +60,7 @@ class TransactionPage{
         .then((text) =>{
             initialValue = parseFloat(text.replace(/[^0-9.-]/g, ""))
         })
-        cy.get(this.selectorsList().TransactionPersonButton).click()
+        cy.get(this.selectorsList().TransactionPersonButton).click({force: true})
         cy.get(this.selectorsList().AmontField).type(value)
         cy.get(this.selectorsList().NoteField).type("Description test")
         cy.get(this.selectorsList().PayButton).click()

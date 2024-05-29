@@ -4,6 +4,12 @@ import userDate from  '../../fixtures/userDate.json'
 import TransactionPage from '../../../pages/transactionPage.js'
 import TransactionHistoricPage from '../../../pages/transactionHistoricPage.js'
 import RegisterPage from '../../../pages/registerPage.js'
+import { faker } from '@faker-js/faker'
+
+const firstNameG = faker.person.firstName()
+const lastNameG = faker.person.lastName()
+const userNameG = faker.internet.userName({firstname: firstNameG, lastName: lastNameG })
+const password = faker.internet.displayName({firstname: firstNameG, lastName: lastNameG })
 
 const loginPage = new LoginPage()
 const transactionPage = new TransactionPage()
@@ -27,10 +33,11 @@ describe( 'Transaction history', () => {
 
   it("No transaction history", ()=> {
     loginPage.accessLoginPage()
-    loginPage.loginWithUser('albnob', 'test')
-    //if (cy.get("[data-test='user-onboarding-dialog-content']") == true) {
-      //registerPage.StartsBank()
-    //}
+    loginPage.RegisterButton()
+    registerPage.FillRegister(firstNameG,lastNameG,userNameG,password,password)
+    registerPage.RegisterButton()
+    loginPage.loginWithUser(userNameG,password)
+    registerPage.StartsBank()
     menuPage.ConferenceMenu()
     transactionHistoricPage.ConferenceNoTransactionHistoric()
   })

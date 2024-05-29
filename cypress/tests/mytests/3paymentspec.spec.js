@@ -19,14 +19,14 @@ describe( 'Payment Tests', () => {
 
   })
 
-  //it("Insufficient balance payment test", () =>{
-    //loginPage.accessLoginPage()
-    //loginPage.loginWithUser(userDate.userSuccess.username, userDate.userSuccess.password)
-    //menuPage.ConferenceMenu()
-    //menuPage.TransactionButton()
-    //transactionPage.ConferenceTransactionPage()
-    //transactionPage.TransactionFail()
+  it("Insufficient balance payment test", () =>{
+    loginPage.accessLoginPage()
+    loginPage.loginWithUser(`Heath93`, `s3cret`)
+    menuPage.ConferenceMenu()
+    menuPage.TransactionButton()
+    transactionPage.ConferenceTransactionPage()
+    transactionPage.TransactionFail()
 
-  //})
+  })
 
 })

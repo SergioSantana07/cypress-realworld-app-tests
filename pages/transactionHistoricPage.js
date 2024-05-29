@@ -38,7 +38,7 @@ class TransactionHistoricPage{
             expect(NameTransference).equal((NameConference))
         })
     }
-
+    
     ConferenceNoTransactionHistoric() {
         cy.get(this.selectorsList().HomeButton).click()
         cy.get(this.selectorsList().PersonalButton).click()
